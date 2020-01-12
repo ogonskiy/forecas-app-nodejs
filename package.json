@@ -1,0 +1,14 @@
+{
+  "name": "forecast-app",
+  "version": "1.0.0",
+  "description": "Weather app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Honsky",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
