@@ -5,16 +5,14 @@ const getUrl = address => `https://api.mapbox.com/geocoding/v5/mapbox.places/${e
 const geocode = (address, callback) => {
   const url = getUrl(address)
 
-  request({ url, json: true }, (error, response) => {
+  request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback('Unable to connect', undefined)
-    } else if (!response.body.features.length) {
+    } else if (!body.features.length) {
       callback('Nothing found', undefined)
     } else {
-      const { center } = response.body.features[0]
-      const latitude = center[1]
-      const longitude = center[0]
-      callback(undefined,`latitide: ${latitude}, longitide: ${longitude}`)
+      const { center } = body.features[0]
+      callback(undefined, center)
     }
   })
 }
